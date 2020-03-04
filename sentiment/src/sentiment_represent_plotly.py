@@ -1,10 +1,12 @@
+import sys
+sys.path.append('../../')
 import csv
 from nltk.stem.wordnet import WordNetLemmatizer
 import re, string, random
 from nltk.tag import pos_tag
 import argparse
 import plotly.graph_objects as go
-
+from summarization.src.summarize import sumarize_mails
 import nltk
 nltk.download('vader_lexicon')
 nltk.download('averaged_perceptron_tagger')
@@ -85,3 +87,4 @@ for index, sentence in enumerate(summary_txt):
     sentence_scores['Sentiment_Score'].append(scores['compound'])
 file_name = args.file_path.split("/")[-1]
 plot_graph(sentence_scores['Time'], sentence_scores['Sentiment_Score'], file_name)
+sumarize_mails()
