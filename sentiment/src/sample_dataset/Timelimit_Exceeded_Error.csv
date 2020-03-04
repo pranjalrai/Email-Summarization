@@ -1,0 +1,18 @@
+Sr. No.,Message,Time,IsCustomerMail
+1,"Hi Nithin,Orbis and Google API workflows were facing TimelimitExceeded Error. As of our basic investigation these workflows are taking more than 30 minutes to complete particular step ,but for orbis we are downloading 10 shareholders details with some sleep time .we were facing this issue after new image deployed in PROD . Kindly need your assistant to fix this issue ASAP as it's impacting both ACE and BIS workflows. Please find the screen shot for your reference.Most of the times we are getting TimelimitExceeded Error in Fetch file step",01/16/2016 12:00:00,TRUE
+2,"Adding Sudeep and Ashish Hi Vinay, As discussed and suggested by Gopu can you please help to reproduce the issue with the problematic entity. Regards, Nithin",01/16/2016 15:00:00,FALSE
+3,"Hi Nitin , I ran Orbis workflow multiple times for the below entity, this entity contains more than 10 shareholders details, it took more than 30 min to complete .I got timelimitExceeded error .please find the attached OCS log details",01/17/2016 1:00:00,TRUE
+4,Hi Nithin - do we have access to the SC environment/laptop. We need to check the value set for fetcher step timeout. Shaunak had set this to 86400 (i.e. one day) on a previous occasion for one of the environments. We can set the same here as well. Thanks Sudeep,01/17/2016 5:00:00,FALSE
+5,"Thanks Sudeep for looking into this. I don't have access to SC laptop. Probably you can send the details to Gopu, so that he can change. Regards, Nithin",01/17/2016 9:00:00,FALSE
+6,"Hi Sudeep , I spoke with nithin regarding timelimitExceeded error. He suggested me to check with you for increasing time for particular steps. Could you please let me know how much time need to increase for particular step . Thanks and Regards , Vinay B B",01/17/2016 9:40:00,TRUE
+7,[internal] Hey Sudeep... I don't think we need to get on a debug session here.. Can you let Gopu know what this env variable is and he can take care of it? It's happening in their prod and so it's going to escalate soon :),01/17/2016 9:49:00,FALSE
+8,Is it this env variable? FETCH_FILES_STEP_TIMEOUT,01/17/2016 10:40:00,FALSE
+9,Yes that's the one. WIll ask Gopu to confirm the value and set this back to 1 day,01/17/2016 10:50:00,FALSE
+10,"Gopu, Can you please add following env var with corresponding value to the prod environment to address the timeouts. FETCH_FILES_STEP_TIMEOUT: 86400 This is included in next release as part of the yaml. Thanks Sudeep",01/18/2016 4:50:00,FALSE
+11,"Sudeep, Can you tell me which deployment spec we need to change Thanks & Regards Gopu G",01/18/2016 10:50:00,TRUE
+12,"Hey Gopu, Its going to be the webdriver deployment. Thanks Sudeep",01/19/2016 10:50:00,FALSE
+13,"Thanks Sudeep, We will move this changes into Production and test this out, we will come back if we faced any issue Thanks & Regards Gopu G",01/19/2016 11:50:00,TRUE
+14,Hi Gopu - the timeout looks to have not changed. Can you share the value of the ENV variable from the webdriver pod? thanks,01/19/2016 11:59:00,FALSE
+15,"Thanks, looked closer at the logs and the timestamp from the exception is prior to when ENV variable was updated. Gopu, can you confirm if you are continuing to see this after the change to the Environment variable?",01/19/2016 12:00:00,FALSE
+16,"Sudeep, It’s an GMT Time in the Log, I am trying to explain in this in the Zoom Call, but not able to hear you guys, and around 3 PM IST , we got this error, and we can able to reproduce also",01/19/2016 12:53:00,TRUE
+17,"Hi Gopu, Looked further at the fetch file task at our end and we will need this update in the api-server-apps as well. Can you add this to api-server-apps, and then test again. Thanks",01/19/2016 12:59:00,FALSE
