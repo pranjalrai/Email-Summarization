@@ -5,8 +5,8 @@ import email
 import csv
 
 
-FROM_EMAIL = ""    # "pranjal.rai125@gmail.com"
-FROM_PWD = ""   # "pgqtsvscwsfchzci"
+FROM_EMAIL = ""    # give the mail id
+FROM_PWD = ""   # app specific password
 SMTP_SERVER = "imap.gmail.com"
 SMTP_PORT = 993
 

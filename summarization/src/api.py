@@ -36,7 +36,7 @@ class EmailSummarization(Resource):
   @swagger.model
   @swagger.operation(notes='some notes')
   def post(self, mail_id, password, no_of_mails):
-    get_mail_details(mail_id, password, no_of_mails)
+    get_mail_details(mail_id, password, no_of_mails)  # give the password: app specific password in this case
     return {
       # mail_id: mail_id,
       # password: password
